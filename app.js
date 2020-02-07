@@ -12,6 +12,7 @@ var hospitalRoute = require('./routes/hospital');
 var medicoRoute = require('./routes/medico');
 var busquedaRoute = require('./routes/busqueda');
 var uploadRoute = require('./routes/upload');
+var imageRoute = require('./routes/imagenes');
 
 
 // Inicializar variables
@@ -44,6 +45,7 @@ app.use('/hospital', hospitalRoute);
 app.use('/medico', medicoRoute);
 app.use('/busqueda', busquedaRoute);
 app.use('/upload', uploadRoute);
+app.use('/img', imageRoute);
 
 
 // Escuchar peticiones

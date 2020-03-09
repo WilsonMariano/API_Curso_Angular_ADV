@@ -14,7 +14,8 @@ var usuarioSchema = new mongoose.Schema({
     email: { type: String, required: [true, 'El correo es necesario'], unique: true },
     password: { type: String, required: [true, 'La contraseña es necesario'] },
     img: { type: String, required: false },
-    role: { type: String, required: true, default: 'USER__ROLE', enum: rolesValidos }
+    role: { type: String, required: true, default: 'USER_ROLE', enum: rolesValidos },
+    google: { type: Boolean, default: false }
 
 });
 

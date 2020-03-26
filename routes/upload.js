@@ -122,7 +122,17 @@ function eliminarImgVieja(tipo, id, nombreArchivo, res) {
 
         //Si existe la imagen la elimina
         if (fs.existsSync(pathViejo)) {
-            fs.unlink(pathViejo);
+            fs.unlink(pathViejo, (err) => {
+
+                if (err) {
+
+                    return res.status(500).json({
+                        ok: false,
+                        msg: "Error al borrar la imagen",
+                        err
+                    });
+                }
+            });
         }
 
         //Guardo el nuevo nombre de archivo
@@ -136,7 +146,7 @@ function eliminarImgVieja(tipo, id, nombreArchivo, res) {
             return res.status(200).json({
                 ok: true,
                 msg: 'Archivo subido',
-                objeto: objetoActualizado
+                data: objetoActualizado
             });
         });
     });
